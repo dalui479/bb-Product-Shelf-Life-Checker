@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Shelf Life Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> BB Shelf Life & Removal Calculator</h1>
+            <p>Calculate BB product status and shelf removal date with precision.</p>
+        </div>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="manufactureDate">Manufacture Date:</label>
+                <input type="date" id="manufactureDate" class="date-input">
+            </div>
+            <div class="input-group">
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="date" id="expiryDate" class="date-input">
+            </div>
+            <button id="calculateBtn" class="calculate-button">Calculate Product Status</button>
+        </div>
+
+        <div class="results-section">
+            <div class="result-card status-card">
+                <h3>Product Status</h3>
+                <p id="status" class="result-value"></p>
+            </div>
+            <div class="result-card removal-card">
+                <h3>Recommended Shelf Removal Date</h3>
+                <p id="shelfRemovalDate" class="result-value"></p>
+            </div>
+            <div class="result-card shelf-life-card">
+                <h3>Calculated Product Shelf Life</h3>
+                <p id="shelfLife" class="result-value"></p>
+            </div>
+        </div>
+
+        <div id="error-message" class="error-message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

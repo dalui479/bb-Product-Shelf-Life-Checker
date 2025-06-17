@@ -1,0 +1,235 @@
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #50E3C2;
+    --background-color: #f0f2f5;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --light-text: #666;
+    --border-color: #e0e0e0;
+    --danger-color: #D0021B;
+    --warning-color: #F5A623;
+    --success-color: #7ED321;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #a8d8e7, #e0f2f7);
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+.container {
+    background-color: var(--card-background);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 95%;
+    max-width: 800px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    opacity: 0.1;
+    filter: blur(40px);
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.1;
+    filter: blur(40px);
+}
+
+.header {
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header p {
+    color: var(--light-text);
+    font-size: 1.1em;
+    font-weight: 300;
+}
+
+.input-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.input-group {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 1.05em;
+}
+
+.date-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1.1em;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.calculate-button {
+    background: linear-gradient(45deg, var(--primary-color), #6aaddf);
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.25em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+    margin-top: 20px;
+}
+
+.calculate-button:hover {
+    background: linear-gradient(45deg, #6aaddf, var(--primary-color));
+    box-shadow: 0 7px 20px rgba(0, 123, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.results-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.result-card {
+    background-color: var(--background-color);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.result-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--text-color);
+    word-break: break-word; /* Ensures long dates wrap */
+}
+
+/* Specific colors for status */
+.status-card .expired {
+    color: var(--danger-color);
+}
+
+.status-card .near-expiry {
+    color: var(--warning-color);
+}
+
+.status-card .ok {
+    color: var(--success-color);
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-weight: 600;
+    margin-top: 25px;
+    font-size: 1.1em;
+    display: none; /* Hidden by default */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .input-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-group {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .calculate-button {
+        width: 100%;
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+
+    .results-section {
+        grid-template-columns: 1fr; /* Stack results vertically on small screens */
+    }
+
+    .result-card h3 {
+        font-size: 1.2em;
+    }
+
+    .result-value {
+        font-size: 1.4em;
+    }
+}
